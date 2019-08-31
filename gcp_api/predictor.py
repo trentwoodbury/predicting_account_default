@@ -30,7 +30,7 @@ class MyPredictor(object):
             A list of outputs containing the prediction results.
         """
         inputs = np.asarray(instances)
-        outputs = self._model.predict_proba(preprocessed_inputs)[:, 1]
+        outputs = self._model.predict_proba(inputs)[:, 1]
         return outputs.tolist()
 
 
@@ -52,8 +52,6 @@ class MyPredictor(object):
         with open(model_path, 'rb') as f:
             model = pickle.load(f)
 
-        preprocessor_path = os.path.join(model_dir, 'preprocessor.pkl')
-        with open(preprocessor_path, 'rb') as f:
-           preprocessor = pickle.load(f)
+        preprocessor = None
 
         return cls(model, preprocessor)

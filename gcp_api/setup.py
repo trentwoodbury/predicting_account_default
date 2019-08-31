@@ -1,6 +1,6 @@
 from setuptools import setup
 
 setup(
-    name='custom_prediction_script',
+    name='predict_default_probability',
     version='0.1',
-    scripts='predictor.py')
+    scripts=['predictor.py', 'preprocess.py'])
