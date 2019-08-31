@@ -6,11 +6,12 @@ from xgboost import XGBClassifier
 
 
 class MyPredictor(object):
-    """An example Predictor for an AI Platform custom prediction routine."""
+    """Predictor for Google AI Platform"""
 
 
     def __init__(self, model, preprocessor):
-        """Stores artifacts for prediction. Only initialized via `from_path`.
+        """
+        Stores artifacts for prediction. Only initialized via `from_path`.
         """
         self._model = model
         self._preprocessor = preprocessor
