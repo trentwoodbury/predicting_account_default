@@ -9,10 +9,11 @@ class MyPredictor(object):
     """An example Predictor for an AI Platform custom prediction routine."""
 
 
-    def __init__(self, model):
+    def __init__(self, model, preprocessor):
         """Stores artifacts for prediction. Only initialized via `from_path`.
         """
         self._model = model
+        self._preprocessor = preprocessor
 
 
     def predict(self, instances, **kwargs):
@@ -51,4 +52,8 @@ class MyPredictor(object):
         with open(model_path, 'rb') as f:
             model = pickle.load(f)
 
-        return cls(model)
+        preprocessor_path = os.path.join(model_dir, 'preprocessor.pkl')
+        with open(preprocessor_path, 'rb') as f:
+           preprocessor = pickle.load(f)
+
+        return cls(model, preprocessor)
