@@ -8,6 +8,7 @@ app.secret_key = 'something_secret'
 # Load the pickled model.
 MODEL = pickle.load(open('model.pkl', 'rb'))
 
+
 @app.route('/api', methods=['GET'])
 def api():
     """Handle request and output model score in json format."""
